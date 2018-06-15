@@ -1,35 +1,69 @@
+<div class='col'>
+  <%= simple_form_for(@contact) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="container">
 
-<%= simple_form_for(@contact) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="row">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Type de contact</label>
+          <select class="form-control" id="contact_categorie" name="contact[categorie]">
+            <option value="Client">Client</option>
+            <option value="Fournisseur">Fournisseur</option>
+          </select>
+        </div>
+      </div>
 
-  <div class="form-inputs">
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Type de contact</label>
-      <select class="form-control" id="contact_categorie" name="contact[categorie]">
-        <option value="Client">Client</option>
-        <option value="Fournisseur">Fournisseur</option>
-      </select>
+      <div class="row">
+        <div class="col card">
+          <div class="card-body row">
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <%= f.input :nom %>
+                </div>
+                <div class="col">
+                  <%= f.input :prenom %>
+                </div>
+              </div>
+              <%= f.input :adresse %>
+              <%= f.input :complementadresse %>
+              <div class="row">
+                <div class="col">
+                  <%= f.input :cp %>
+                </div>
+                <div class="col">
+                  <%= f.input :ville %>
+                </div>
+              </div>
+              <%= f.input :pays %>
+              <div class="row">
+                <div class="col">
+                  <%= f.input :tel %>
+                </div>
+                <div class="col">
+                  <%= f.input :mobile %>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <%= f.input :raisonsociale %>
+              <%= f.input :activite %>
+              <%= f.input :siret %>
+              <%= f.input :tva %>
+              <%= f.input :url %>
+              <%= f.input :email %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= f.input :commentaire %>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+
     </div>
-    <%= f.input :nom %>
-    <%= f.input :prenom %>
-    <%= f.input :adresse %>
-    <%= f.input :complementadresse %>
-    <%= f.input :cp %>
-    <%= f.input :ville %>
-    <%= f.input :pays %>
-    <%= f.input :raisonsociale %>
-    <%= f.input :tel %>
-    <%= f.input :mobile %>
-    <%= f.input :email %>
-    <%= f.input :activite %>
-    <%= f.input :url %>
-    <%= f.input :siret %>
-    <%= f.input :tva %>
-    <%= f.input :commentaire %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+  <% end %>
+</div>
