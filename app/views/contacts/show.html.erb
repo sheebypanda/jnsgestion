@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Categorie:</strong>
+  <%= @contact.categorie %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @contact.nom %>
+</p>
+
+<p>
+  <strong>Prenom:</strong>
+  <%= @contact.prenom %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @contact.adresse %>
+</p>
+
+<p>
+  <strong>Complementadresse:</strong>
+  <%= @contact.complementadresse %>
+</p>
+
+<p>
+  <strong>Cp:</strong>
+  <%= @contact.cp %>
+</p>
+
+<p>
+  <strong>Ville:</strong>
+  <%= @contact.ville %>
+</p>
+
+<p>
+  <strong>Pays:</strong>
+  <%= @contact.pays %>
+</p>
+
+<p>
+  <strong>Raisonsociale:</strong>
+  <%= @contact.raisonsociale %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @contact.tel %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @contact.mobile %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>Activite:</strong>
+  <%= @contact.activite %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @contact.url %>
+</p>
+
+<p>
+  <strong>Siret:</strong>
+  <%= @contact.siret %>
+</p>
+
+<p>
+  <strong>Tva:</strong>
+  <%= @contact.tva %>
+</p>
+
+<p>
+  <strong>Commentaire:</strong>
+  <%= @contact.commentaire %>
+</p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
