@@ -15,14 +15,16 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <% if user_signed_in? %>
       <%= render "shared/navbar" %>
     <% end %>
     <div class="container-fluid bg-light">
       <div class="row">
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        
         <%= yield %>
       </div>
     </div>
