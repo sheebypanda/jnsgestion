@@ -7,11 +7,11 @@ class ContactsController < ApplicationController
   end
 
   def clients
-    @clients = Contact.where(categorie: 'Client')
+    @contacts = Contact.where(categorie: 'Client')
   end
 
   def fournisseurs
-    @clients = Contact.where(categorie: 'Fournisseur')
+    @contacts = Contact.where(categorie: 'Fournisseur')
   end
 
   def show

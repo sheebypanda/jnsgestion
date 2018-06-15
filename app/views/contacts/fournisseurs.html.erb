@@ -1,0 +1,35 @@
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th><%= fa_icon("barcode") %> Code client</th>
+      <th><%= fa_icon("id-card") %> Nom</th>
+      <th><%= fa_icon("id-card") %> Prénom</th>
+      <th><%= fa_icon("bars") %> Raison sociale</th>
+      <th><%= fa_icon("envelope") %> Email</th>
+      <th><%= fa_icon("phone") %> Tel</th>
+      <th><%= fa_icon("mobile") %> Mobile</th>
+      <th><%= fa_icon("barcode") %> Siret</th>
+      <th><%= fa_icon("globe") %> Pays</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.id %></td>
+        <td><%= contact.nom %></td>
+        <td><%= contact.prenom %></td>
+        <td><%= contact.raisonsociale %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.tel %></td>
+        <td><%= contact.mobile %></td>
+        <td><%= contact.siret %></td>
+        <td><%= contact.pays %></td>
+        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
