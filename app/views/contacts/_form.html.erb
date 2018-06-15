@@ -4,7 +4,13 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :categorie %>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Type de contact</label>
+      <select class="form-control" id="contact_categorie" name="contact[categorie]">
+        <option value="Client">Client</option>
+        <option value="Fournisseur">Fournisseur</option>
+      </select>
+    </div>
     <%= f.input :nom %>
     <%= f.input :prenom %>
     <%= f.input :adresse %>
