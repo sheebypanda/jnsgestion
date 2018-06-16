@@ -13,7 +13,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<%= new_contact_path%>"><%= fa_icon('user') %> Contact</a>
           <a class="dropdown-item" href="<%= new_commande_path%>"><%= fa_icon('shopping-basket') %> Commande</a>
-          <a class="dropdown-item" href="#"><%= fa_icon('money') %> Achat</a>
+          <a class="dropdown-item" href="<%= new_vehicule_path%>"><%= fa_icon('car') %> Véhicule</a>
         </div>
       </li>
       <li class="nav-item <% if request.path.start_with?('/clients') %>active<% end %>">
@@ -23,10 +23,10 @@
         <a class="nav-link" href="/fournisseurs"><%= fa_icon('industry') %> Fournisseurs</a>
       </li>
       <li class="nav-item <% if request.path.start_with?('/commandes') %>active<% end %>">
-        <a class="nav-link disabled" href="<%= commandes_path %>"><%= fa_icon('shopping-basket') %> Commandes</a>
+        <a class="nav-link" href="<%= commandes_path %>"><%= fa_icon('shopping-basket') %> Commandes</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#"><%= fa_icon('car') %> Véhicules</a>
+      <li class="nav-item <% if request.path.start_with?('/vehicules') %>active<% end %>">
+        <a class="nav-link" href="<%= vehicules_path %>"><%= fa_icon('car') %> Véhicules</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#"><%= fa_icon('money') %> Achats</a>

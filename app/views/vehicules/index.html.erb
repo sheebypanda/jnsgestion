@@ -1,0 +1,51 @@
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th>Enregistré par</th>
+      <th>Fournisseur</th>
+      <th>Commande</th>
+      <th>Marque</th>
+      <th>Modele</th>
+      <th>Finition</th>
+      <th>Categorie</th>
+      <th>Boite</th>
+      <th>Cylindree</th>
+      <th>Cv</th>
+      <th>Cvfiscaux</th>
+      <th>Couleur</th>
+      <th>Chassis</th>
+      <th>Carburant</th>
+      <th>Immat</th>
+      <th>Km</th>
+      <th>Prix (HT)</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicules.each do |vehicule| %>
+      <tr>
+        <td><%= vehicule.user.email %></td>
+        <td><%= vehicule.contact.raisonsociale %> <%= vehicule.contact.nom %> <%= vehicule.contact.prenom %></td>
+        <td><% if vehicule.commande %><%= vehicule.commande.marque %> <%= vehicule.commande.modele %> pour <%= vehicule.commande.contact.nom %><% end %></td>
+        <td><%= vehicule.marque %></td>
+        <td><%= vehicule.modele %></td>
+        <td><%= vehicule.finition %></td>
+        <td><%= vehicule.categorie %></td>
+        <td><%= vehicule.boite %></td>
+        <td><%= vehicule.cylindree %></td>
+        <td><%= vehicule.cv %></td>
+        <td><%= vehicule.cvfiscaux %></td>
+        <td><%= vehicule.couleur %></td>
+        <td><%= vehicule.chassis %></td>
+        <td><%= vehicule.carburant %></td>
+        <td><%= vehicule.immat %></td>
+        <td><%= vehicule.km %></td>
+        <td><%= vehicule.prixht %></td>
+        <td><%= link_to 'Consulter', vehicule %></td>
+        <td><%= link_to 'Modifier', edit_vehicule_path(vehicule) %></td>
+        <td><%= link_to 'Supprimer', vehicule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

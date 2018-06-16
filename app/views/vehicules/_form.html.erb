@@ -1,0 +1,85 @@
+<div class='col'>
+  <div class='container'>
+<%= simple_form_for(@vehicule) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class='row'>
+      <%= f.association :user, :as => :hidden, :input_html => { :value => current_user.id } %>
+      <div class='col'>
+        <div class="form-group string required vehicule_contact_id">
+          <label class="form-control-label string optional" for="vehicule_contact_id">Fournisseur : </label>
+          <select class="form-control select required" name="vehicule[contact_id]" id="vehicule_contact_id">
+            <option></option>
+            <% @fournisseurs.each do |f| %>
+              <option value="<%= f.id %>"><%= f.raisonsociale %> <%= f.prenom %> <%= f.nom %> </option>
+            <% end%>
+          </select>
+        </div>
+      </div>
+      <div class='col'>
+        <div class="form-group string required vehicule_commande_id">
+          <label class="form-control-label string optional" for="vehicule_commande_id">Commande : </label>
+          <select class="form-control select required" name="vehicule[commande_id]" id="vehicule_commande_id">
+            <option></option>
+            <% @commandes.each do |c| %>
+              <option value="<%= c.id %>"><%= c.marque %> <%= c.modele %> - <%= c.contact.nom %> <%= c.contact.prenom %> </option>
+            <% end%>
+          </select>
+        </div>
+      </div>
+      <div class='col'>
+        <%= f.input :prixht %>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col'>
+        <div class="card">
+          <div class="card-body">
+            <div class='row'>
+              <div class='col'>
+                <%= f.input :marque %>
+                <%= f.input :modele %>
+                <%= f.input :finition %>
+                <%= f.input :couleur %>
+                <%= f.input :categorie %>
+                <div class="form-group string optional vehicule_transmission">
+                  <label class="form-control-label string optional" for="vehicule_transmission">Transmission : </label>
+                  <select class="form-control select optional" name="vehicule[transmission]" id="vehicule_transmission">
+                    <option></option>
+                    <option value="Manuelle">Manuelle</option>
+                    <option value="Automatique">Automatique</option>
+                    <option value="Semi-Automatique">Semi-Automatique</option>
+                  </select>
+                </div>
+                <div class="form-group string optional vehicule_carburant">
+                  <label class="form-control-label string optional" for="vehicule_carburant">Carburant : </label>
+                  <select class="form-control select optional" name="vehicule[carburant]" id="vehicule_carburant">
+                    <option></option>
+                    <option value="Essence">Essence</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Hybride">Hybride</option>
+                    <option value="Electrique">Électrique</option>
+                    <option value="Agro-carburant">Agro-carburant</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <%= f.input :km %>
+                <%= f.input :co2 %>
+                <%= f.input :cylindree %>
+                <%= f.input :cv %>
+                <%= f.input :cvfiscaux %>
+                <%= f.input :chassis %>
+                <%= f.input :immat %>
+              </div>
+            </div>
+
+
+    <%= f.input :equipement %>
+    <%= f.button :submit %>
+  </div>
+
+
+<% end %>

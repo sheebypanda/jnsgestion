@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  contact: one
+  commande: one
+  marque: MyString
+  modele: MyString
+  finition: MyString
+  categorie: MyString
+  boite: MyString
+  cylindree: 1
+  cv: 1
+  cvfiscaux: 1
+  couleur: MyString
+  chassis: MyString
+  carburant: MyString
+  immat: MyString
+  km: 1
+  co2.string: MyString
+  prixht: 
+
+two:
+  user: two
+  contact: two
+  commande: two
+  marque: MyString
+  modele: MyString
+  finition: MyString
+  categorie: MyString
+  boite: MyString
+  cylindree: 1
+  cv: 1
+  cvfiscaux: 1
+  couleur: MyString
+  chassis: MyString
+  carburant: MyString
+  immat: MyString
+  km: 1
+  co2.string: MyString
+  prixht: 
