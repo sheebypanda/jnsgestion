@@ -1,94 +1,89 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @vehicule.user %>
-</p>
-
-<p>
-  <strong>Contact:</strong>
-  <%= @vehicule.contact %>
-</p>
-
-<p>
-  <strong>Commande:</strong>
-  <%= @vehicule.commande %>
-</p>
-
-<p>
-  <strong>Marque:</strong>
-  <%= @vehicule.marque %>
-</p>
-
-<p>
-  <strong>Modele:</strong>
-  <%= @vehicule.modele %>
-</p>
-
-<p>
-  <strong>Finition:</strong>
-  <%= @vehicule.finition %>
-</p>
-
-<p>
-  <strong>Categorie:</strong>
-  <%= @vehicule.categorie %>
-</p>
-
-<p>
-  <strong>Boite:</strong>
-  <%= @vehicule.boite %>
-</p>
-
-<p>
-  <strong>Cylindree:</strong>
-  <%= @vehicule.cylindree %>
-</p>
-
-<p>
-  <strong>Cv:</strong>
-  <%= @vehicule.cv %>
-</p>
-
-<p>
-  <strong>Cvfiscaux:</strong>
-  <%= @vehicule.cvfiscaux %>
-</p>
-
-<p>
-  <strong>Couleur:</strong>
-  <%= @vehicule.couleur %>
-</p>
-
-<p>
-  <strong>Chassis:</strong>
-  <%= @vehicule.chassis %>
-</p>
-
-<p>
-  <strong>Carburant:</strong>
-  <%= @vehicule.carburant %>
-</p>
-
-<p>
-  <strong>Immat:</strong>
-  <%= @vehicule.immat %>
-</p>
-
-<p>
-  <strong>Km:</strong>
-  <%= @vehicule.km %>
-</p>
-
-<p>
-  <strong>Co2.string:</strong>
-  <%= @vehicule.co2 %>
-</p>
-
-<p>
-  <strong>Prixht:</strong>
-  <%= @vehicule.prixht %>
-</p>
-
-<%= link_to 'Edit', edit_vehicule_path(@vehicule) %> |
-<%= link_to 'Back', vehicules_path %>
+<div class='col'>
+  <div class='row'>
+    <div class='col'>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= fa_icon('car') %> <%= @vehicule.marque %> <%= @vehicule.modele %> <%= @vehicule.immat %> - <%= @vehicule.prixht %> € HT</h5>
+          <div class='row'>
+            <div class='col'>
+              <p class="card-text"><strong>Type :</strong> <%= @vehicule.categorie %></p>
+              <p class="card-text"><strong>Finition :</strong> <%= @vehicule.finition %></p>
+              <p class="card-text"><strong>Couleur :</strong> <%= @vehicule.couleur %></p>
+              <p class="card-text"><strong>Km :</strong> <%= @vehicule.km %></p>
+              <p class="card-text"><strong>N°chassis :</strong> <%= @vehicule.chassis %></p>
+            </div>
+            <div class='col'>
+              <p class="card-text"><strong>Carburant :</strong> <%= @vehicule.carburant %></p>
+              <p class="card-text"><strong>Boite :</strong> <%= @vehicule.boite %></p>
+              <p class="card-text"><strong>Puissance :</strong> <%= @vehicule.cylindree %></p>
+              <p class="card-text"><strong>CV :</strong> <%= @vehicule.cv %></p>
+              <p class="card-text"><strong>CV fiscaux :</strong> <%= @vehicule.cvfiscaux %></p>
+              <p class="card-text"><strong>CO² :</strong> <%= @vehicule.co2 %></p>
+            </div>
+          </div>
+          <footer class="blockquote-footer">Acheté le <%= @vehicule.created_at.strftime("%d/%m/%Y") %> par <%= @vehicule.user.email %></footer>
+          <%= link_to 'Modifier', edit_vehicule_path(@vehicule.commande), class: 'btn btn-outline-primary' %>
+        </div>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= fa_icon('shopping-basket') %> Commande n°<%= @vehicule.commande.id %> <small>du <%= @vehicule.commande.created_at.strftime("%d/%m/%Y") %></small> <span class="badge badge-warning badge-pill"><%= @vehicule.commande.etat %></span></h5>
+          <div class='row'>
+            <div class='col'>
+              <p class="card-text"><strong>Marque :</strong> <%= @vehicule.commande.marque %></p>
+              <p class="card-text"><strong>Modèle :</strong> <%= @vehicule.commande.modele %></p>
+              <p class="card-text"><strong>Finition :</strong> <%= @vehicule.commande.finition %></p>
+              <p class="card-text"><strong>Type :</strong> <%= @vehicule.commande.categorie %></p>
+              <p class="card-text"><strong>Année min :</strong> <%= @vehicule.commande.anneemin %></p>
+              <p class="card-text"><strong>Année max :</strong> <%= @vehicule.commande.anneemax %></p>
+              <p class="card-text"><strong>Km :</strong> <%= @vehicule.commande.km %></p>
+            </div>
+            <div class='col'>
+              <p class="card-text"><strong>Carburant :</strong> <%= @vehicule.commande.carburant %></p>
+              <p class="card-text"><strong>Transmission :</strong> <%= @vehicule.commande.transmission %></p>
+              <p class="card-text"><strong>Puissance :</strong> <%= @vehicule.commande.puissance %></p>
+              <p class="card-text"><strong>CO² :</strong> <%= @vehicule.commande.co2 %></p>
+              <p class="card-text"><strong>Couleur :</strong> <%= @vehicule.commande.couleur %></p>
+            </div>
+          </div>
+          <%= link_to 'Modifier', edit_commande_path(@vehicule.commande), class: 'btn btn-outline-primary' %>
+        </div>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= fa_icon('user') %> Informations du client <strong><%= @vehicule.commande.contact.prenom %> <%= @vehicule.commande.contact.nom %></strong></h5>
+          <div class='row'>
+            <div class='col'>
+              <p class="card-text"><strong>Raison sociale :</strong> <%= @vehicule.commande.contact.raisonsociale %></p>
+              <p class="card-text"><strong>Activité :</strong> <%= @vehicule.commande.contact.activite %></p>
+              <p class="card-text"><strong>Adresse :</strong> <%= @vehicule.commande.contact.adresse %></p>
+              <p class="card-text"><strong>Complément adr :</strong> <%= @vehicule.commande.contact.complementadresse %></p>
+              <p class="card-text"><strong><%= @vehicule.commande.contact.cp %> <%= @vehicule.commande.contact.ville %> <%= @vehicule.commande.contact.pays %></strong></p>
+              <p class="card-text"><strong><%= fa_icon('phone') %> :</strong> <%= @vehicule.commande.contact.tel %></p>
+              <p class="card-text"><strong><%= fa_icon('mobile') %> :</strong> <%= @vehicule.commande.contact.mobile %></p>
+              <p class="card-text"><strong><%= fa_icon('envelope') %> :</strong> <%= @vehicule.commande.contact.email %></p>
+              <p class="card-text"><strong><%= fa_icon('barcode') %> SIRET :</strong> <%= @vehicule.commande.contact.siret %></p>
+              <p class="card-text"><strong><%= fa_icon('barcode') %> TVA :</strong> <%= @vehicule.commande.contact.tva %></p>
+              <p class="card-text"><strong>Commentaire :</strong> <%= @vehicule.commande.contact.commentaire %></p>
+              <%= link_to 'Modifier', edit_contact_path(@vehicule.commande.contact.id), class: 'btn btn-outline-primary' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col'>
+    </div>
+  </div>
+  <div class='row mt-3'>
+    <div class='col'>
+      <%= @vehicule.commande.options %>
+      <%= @vehicule.commande.commentaire %>
+    </div>
+  </div>
+</div>
