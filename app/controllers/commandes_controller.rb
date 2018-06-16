@@ -56,6 +56,6 @@ class CommandesController < ApplicationController
     end
 
     def commande_params
-      params.require(:commande).permit(:etat, :contact_id, :marque, :modele, :finition, :categorie, :anneemin, :anneemax, :km, :transmission, :carburant, :puissance, :co2, :couleur, :options, :commentaire)
+      params.require(:commande).permit(:etat, :contact_id, :marque, :modele, :finition, :categorie, :anneemin, :anneemax, :km, :transmission, :carburant, :puissance, :co2, :couleur, :options, :commentaire, :user_id)
     end
 end

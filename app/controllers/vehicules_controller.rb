@@ -22,7 +22,7 @@ class VehiculesController < ApplicationController
 
     respond_to do |format|
       if @vehicule.save
-        format.html { redirect_to @vehicule, notice: 'Vehicule was successfully created.' }
+        format.html { redirect_to @vehicule, notice: 'Le véhicule a bien été créé.' }
       else
         format.html { render :new }
       end
@@ -32,7 +32,7 @@ class VehiculesController < ApplicationController
   def update
     respond_to do |format|
       if @vehicule.update(vehicule_params)
-        format.html { redirect_to @vehicule, notice: 'Vehicule was successfully updated.' }
+        format.html { redirect_to vehicules_path, notice: 'Le véhicule a bien été modifié.' }
       else
         format.html { render :edit }
       end
@@ -42,7 +42,7 @@ class VehiculesController < ApplicationController
   def destroy
     @vehicule.destroy
     respond_to do |format|
-      format.html { redirect_to vehicules_url, notice: 'Vehicule was successfully destroyed.' }
+      format.html { redirect_to vehicules_url, notice: 'Le véhicule a bien été supprimé.' }
     end
   end
 

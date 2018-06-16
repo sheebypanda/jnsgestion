@@ -8,12 +8,10 @@
       <th>Modele</th>
       <th>Finition</th>
       <th>Categorie</th>
-      <th>Anneemin</th>
-      <th>Anneemax</th>
+      <th>Année</th>
       <th>Km</th>
       <th>Transmission</th>
       <th>Carburant</th>
-      <th>Puissance</th>
       <th>Couleur</th>
       <th>Options</th>
       <th>Créée le</th>
@@ -31,15 +29,13 @@
         <td><%= commande.modele %></td>
         <td><%= commande.finition %></td>
         <td><%= commande.categorie %></td>
-        <td><%= commande.anneemin %></td>
-        <td><%= commande.anneemax %></td>
+        <td><%= commande.anneemin %> - <%= commande.anneemax %></td>
         <td><%= commande.km %></td>
         <td><%= commande.transmission %></td>
         <td><%= commande.carburant %></td>
-        <td><%= commande.puissance %></td>
         <td><%= commande.couleur %></td>
         <td><%= commande.options %></td>
-        <td><%= commande.created_at.strftime("%d/%m/%Y %R") %></td>
+        <td><%= commande.created_at.strftime("%d/%m/%Y %R") %> par <%= commande.user.email if commande.user %></td>
         <td><%= link_to 'Consulter', commande %></td>
         <td><%= link_to 'Modifier', edit_commande_path(commande) %></td>
         <td><%= link_to 'Supprimer', commande, method: :delete, data: { confirm: 'Are you sure?' } %></td>
