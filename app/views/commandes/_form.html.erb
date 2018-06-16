@@ -11,9 +11,9 @@
               <label class="form-control-label string optional" for="commande_etat">État : </label>
               <select class="form-control select optional" name="commande[etat]" id="commande_etat">
                 <option></option>
-                <option value="En cours">En cours</option>
-                <option value="Urgent">Urgent</option>
-                <option value="En retard">En retard</option>
+                <option value="En cours" <% if @commande.etat == 'En cours' %> selected <% end %>>En cours</option>
+                <option value="Urgent" <% if @commande.etat == 'Urgent' %> selected <% end %>>Urgent</option>
+                <option value="En retard" <% if @commande.etat == 'En retard' %> selected <% end %>>En retard</option>
               </select>
             </div>
           </div>
@@ -53,20 +53,20 @@
                       <label class="form-control-label string optional" for="commande_transmission">Transmission : </label>
                       <select class="form-control select optional" name="commande[transmission]" id="commande_transmission">
                         <option></option>
-                        <option value="Manuelle">Manuelle</option>
-                        <option value="Automatique">Automatique</option>
-                        <option value="Semi-Automatique">Semi-Automatique</option>
+                        <option value="Manuelle" <% if @commande.transmission == 'Manuelle' %> selected <% end %>>Manuelle</option>
+                        <option value="Automatique" <% if @commande.transmission == 'Automatique' %> selected <% end %>>Automatique</option>
+                        <option value="Semi-Automatique" <% if @commande.transmission == 'Semi-Automatique' %> selected <% end %>>Semi-Automatique</option>
                       </select>
                     </div>
                     <div class="form-group string optional commande_carburant">
                       <label class="form-control-label string optional" for="commande_carburant">Carburant : </label>
                       <select class="form-control select optional" name="commande[carburant]" id="commande_carburant">
                         <option></option>
-                        <option value="Essence">Essence</option>
-                        <option value="Diesel">Diesel</option>
-                        <option value="Hybride">Hybride</option>
-                        <option value="Electrique">Électrique</option>
-                        <option value="Agro-carburant">Agro-carburant</option>
+                        <option value="Essence" <% if @commande.carburant == 'Essence' %> selected <% end %>>Essence</option>
+                        <option value="Diesel" <% if @commande.carburant == 'Diesel' %> selected <% end %>>Diesel</option>
+                        <option value="Hybride" <% if @commande.carburant == 'Hybride' %> selected <% end %>>Hybride</option>
+                        <option value="Electrique" <% if @commande.carburant == 'Electrique' %> selected <% end %>>Électrique</option>
+                        <option value="Agro-carburant" <% if @commande.carburant == 'Agro-carburant' %> selected <% end %>>Agro-carburant</option>
                       </select>
                     </div>
                     <%= f.input :puissance %>

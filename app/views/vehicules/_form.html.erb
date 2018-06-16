@@ -13,7 +13,7 @@
           <select class="form-control select required" name="vehicule[contact_id]" id="vehicule_contact_id">
             <option></option>
             <% @fournisseurs.each do |f| %>
-              <option value="<%= f.id %>"><%= f.raisonsociale %> <%= f.prenom %> <%= f.nom %> </option>
+              <option value="<%= f.id %>" <% if @vehicule.contact_id == f.id %> selected <% end %>><%= f.raisonsociale %> <%= f.prenom %> <%= f.nom %> </option>
             <% end%>
           </select>
         </div>
@@ -24,7 +24,7 @@
           <select class="form-control select required" name="vehicule[commande_id]" id="vehicule_commande_id">
             <option></option>
             <% @commandes.each do |c| %>
-              <option value="<%= c.id %>"><%= c.marque %> <%= c.modele %> - <%= c.contact.nom %> <%= c.contact.prenom %> </option>
+              <option value="<%= c.id %>" <% if @vehicule.commande_id == c.id %> selected <% end %>><%= c.marque %> <%= c.modele %> - <%= c.contact.nom %> <%= c.contact.prenom %> </option>
             <% end%>
           </select>
         </div>
@@ -48,9 +48,9 @@
                   <label class="form-control-label string optional" for="vehicule_transmission">Transmission : </label>
                   <select class="form-control select optional" name="vehicule[transmission]" id="vehicule_transmission">
                     <option></option>
-                    <option value="Manuelle">Manuelle</option>
-                    <option value="Automatique">Automatique</option>
-                    <option value="Semi-Automatique">Semi-Automatique</option>
+                    <option value="Manuelle" <% if @vehicule.transmission == f.transmission %> selected <% end %>>Manuelle</option>
+                    <option value="Automatique" <% if @vehicule.transmission == f.transmission %> selected <% end %>>Automatique</option>
+                    <option value="Semi-Automatique" <% if @vehicule.transmission == f.transmission %> selected <% end %>>Semi-Automatique</option>
                   </select>
                 </div>
                 <div class="form-group string optional vehicule_carburant">
