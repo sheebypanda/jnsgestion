@@ -15,6 +15,7 @@ class ContactsController < ApplicationController
   end
 
   def show
+    @livraison = Livraison.new
   end
 
   def new
@@ -22,6 +23,7 @@ class ContactsController < ApplicationController
   end
 
   def edit
+    @livraison = Livraison.new
   end
 
   def create

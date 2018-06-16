@@ -1,89 +1,55 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Categorie:</strong>
-  <%= @contact.categorie %>
-</p>
-
-<p>
-  <strong>Nom:</strong>
-  <%= @contact.nom %>
-</p>
-
-<p>
-  <strong>Prenom:</strong>
-  <%= @contact.prenom %>
-</p>
-
-<p>
-  <strong>Adresse:</strong>
-  <%= @contact.adresse %>
-</p>
-
-<p>
-  <strong>Complementadresse:</strong>
-  <%= @contact.complementadresse %>
-</p>
-
-<p>
-  <strong>Cp:</strong>
-  <%= @contact.cp %>
-</p>
-
-<p>
-  <strong>Ville:</strong>
-  <%= @contact.ville %>
-</p>
-
-<p>
-  <strong>Pays:</strong>
-  <%= @contact.pays %>
-</p>
-
-<p>
-  <strong>Raisonsociale:</strong>
-  <%= @contact.raisonsociale %>
-</p>
-
-<p>
-  <strong>Tel:</strong>
-  <%= @contact.tel %>
-</p>
-
-<p>
-  <strong>Mobile:</strong>
-  <%= @contact.mobile %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
-
-<p>
-  <strong>Activite:</strong>
-  <%= @contact.activite %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @contact.url %>
-</p>
-
-<p>
-  <strong>Siret:</strong>
-  <%= @contact.siret %>
-</p>
-
-<p>
-  <strong>Tva:</strong>
-  <%= @contact.tva %>
-</p>
-
-<p>
-  <strong>Commentaire:</strong>
-  <%= @contact.commentaire %>
-</p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<div class="col">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <p><%= @contact.raisonsociale %></p>
+          <p><%= @contact.prenom %> <%= @contact.nom %></p>
+          <p><strong>Activité :</strong> <%= @contact.activite %></p>
+          <p><strong>Siret :</strong> <%= @contact.siret %></p>
+          <p><strong>Tva :</strong> <%= @contact.tva %></p>
+          <p><strong>Adresse :</strong> <%= @contact.adresse %></p>
+          <p><strong>Complement d'adresse :</strong> <%= @contact.complementadresse %></p>
+          <p><%= @contact.cp %> <%= @contact.ville %> <%= @contact.pays %></p>
+        </div>
+        <div class="col">
+          <p><strong>Tel :</strong> <%= @contact.tel %></p>
+          <p><strong>Mobile :</strong> <%= @contact.mobile %></p>
+          <p><strong>Email :</strong> <%= @contact.email %></p>
+          <p><strong>Url :</strong> <%= @contact.url %></p>
+        </div>
+      </div>
+      <p>
+        <strong>Commentaire:</strong>
+        <%= @contact.commentaire %>
+      </p>
+      <%= link_to 'Modifier', edit_contact_path(@contact), :class=>"btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="row">
+    <div class="col">
+      <% if @contact.livraisons.count > 0 %>
+        <h4>Adresses de livraisons :</h4>
+        <% @contact.livraisons.each do |l|%>
+          <div class="card mt-3">
+            <div class="card-body">
+              <h5 class="card-title"><%= l.adresse %></h5>
+              <p class="card-text"><%= l.complementadresse %></p>
+              <p class="card-text"><%= l.cp %> <%= l.ville %></p></p>
+              <p class="card-text"><%= l.pays %> <%= l.initiales %></p>
+              <a href="<%= edit_livraison_path(l.id) %>" class="btn btn-outline-primary">Modifier</a>
+              <%= link_to 'Supprimer', l, method: :delete, class: 'btn btn-outline-danger', data: { confirm: 'Êtes-vous sûr ?' } %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col">
+      <%= link_to 'Ajouter une adresse de livraison', new_contact_livraison_path(@contact), class: 'btn-outline-primary btn' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  adresse: MyString
+  complementadresse: MyString
+  cp: 1
+  ville: MyString
+  pays: MyString
+  initiales: MyString
+  contact: one
+
+two:
+  adresse: MyString
+  complementadresse: MyString
+  cp: 1
+  ville: MyString
+  pays: MyString
+  initiales: MyString
+  contact: two

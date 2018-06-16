@@ -1,0 +1,28 @@
+<div class="container">
+  <%= simple_form_for [@contact, @livraison] do |f| %>
+    <!-- <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %> -->
+
+    <div class="row">
+      <div class="col">
+        <div class="form-inputs">
+          <%= f.input :adresse %>
+          <%= f.input :complementadresse, label: 'Adresse complémentaire' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"><%= f.input :cp, label: 'Code postal' %></div>
+      <div class="col"><%= f.input :ville %></div>
+    </div>
+    <div class="row">
+      <div class="col"><%= f.input :pays %></div>
+      <div class="col"><%= f.input :initiales %></div>
+    </div>
+    <%= f.association :contact, :as => :hidden, :input_html => { :value => @contact.id } %>
+    <div class="form-actions">
+      <%= f.button :submit, value: "Valider"%>
+    </div>
+  <% end %>
+
+</div>

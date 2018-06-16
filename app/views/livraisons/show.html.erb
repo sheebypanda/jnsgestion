@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @livraison.adresse %>
+</p>
+
+<p>
+  <strong>Complementadresse:</strong>
+  <%= @livraison.complementadresse %>
+</p>
+
+<p>
+  <strong>Cp:</strong>
+  <%= @livraison.cp %>
+</p>
+
+<p>
+  <strong>Ville:</strong>
+  <%= @livraison.ville %>
+</p>
+
+<p>
+  <strong>Pays:</strong>
+  <%= @livraison.pays %>
+</p>
+
+<p>
+  <strong>Initiales:</strong>
+  <%= @livraison.initiales %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @livraison.contact %>
+</p>
+
+<%= link_to 'Edit', edit_livraison_path(@livraison) %> |
+<%= link_to 'Back', livraisons_path %>

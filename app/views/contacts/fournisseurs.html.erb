@@ -10,7 +10,7 @@
       <th><%= fa_icon("mobile") %> Mobile</th>
       <th><%= fa_icon("barcode") %> Siret</th>
       <th><%= fa_icon("globe") %> Pays</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -18,17 +18,16 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td><%= contact.id %></td>
-        <td><%= contact.nom %></td>
-        <td><%= contact.prenom %></td>
-        <td><%= contact.raisonsociale %></td>
+        <td><a href="<%= contact_path(contact) %>"><%= contact.nom %></a></td>
+        <td><a href="<%= contact_path(contact) %>"><%= contact.prenom %></a></td>
+        <td><a href="<%= contact_path(contact) %>"><%= contact.raisonsociale %></a></td>
         <td><%= contact.email %></td>
         <td><%= contact.tel %></td>
         <td><%= contact.mobile %></td>
         <td><%= contact.siret %></td>
         <td><%= contact.pays %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Modifier', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Supprimer', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

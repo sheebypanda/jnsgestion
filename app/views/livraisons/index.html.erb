@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Livraisons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Adresse</th>
+      <th>Complementadresse</th>
+      <th>Cp</th>
+      <th>Ville</th>
+      <th>Pays</th>
+      <th>Initiales</th>
+      <th>Contact</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @livraisons.each do |livraison| %>
+      <tr>
+        <td><%= livraison.adresse %></td>
+        <td><%= livraison.complementadresse %></td>
+        <td><%= livraison.cp %></td>
+        <td><%= livraison.ville %></td>
+        <td><%= livraison.pays %></td>
+        <td><%= livraison.initiales %></td>
+        <td><%= livraison.contact %></td>
+        <td><%= link_to 'Show', livraison %></td>
+        <td><%= link_to 'Edit', edit_livraison_path(livraison) %></td>
+        <td><%= link_to 'Destroy', livraison, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Livraison', new_livraison_path %>
