@@ -1,0 +1,92 @@
+<div class='col'>
+  <div class='container'>
+    <%= simple_form_for(@commande) do |f| %>
+    <!-- <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %> -->
+      <div class="form-inputs">
+        <div class='row'>
+          <div class='col'>
+            <div class="form-group string optional commande_etat">
+              <label class="form-control-label string optional" for="commande_etat">État : </label>
+              <select class="form-control select optional" name="commande[etat]" id="commande_etat">
+                <option></option>
+                <option value="En cours">En cours</option>
+                <option value="Urgent">Urgent</option>
+                <option value="En retard">En retard</option>
+              </select>
+            </div>
+          </div>
+          <div class='col'>
+            <div class="form-group string required commande_contact_id">
+              <label class="form-control-label string optional" for="commande_contact_id">Client</label>
+              <select class="form-control select required" name="commande[contact_id]" id="commande_contact_id">
+                <% @clients.each do |c| %>
+                  <option value="<%= c.id %>"><%= c.raisonsociale %> <%= c.prenom %> <%= c.nom %> </option>
+                <% end%>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col'>
+            <div class="card">
+              <div class="card-body">
+                <div class='row'>
+                  <div class='col'>
+                    <%= f.input :marque %>
+                    <%= f.input :modele %>
+                    <%= f.input :finition %>
+                    <%= f.input :categorie %>
+                    <div class='row'>
+                      <div class='col'>
+                        <%= f.input :anneemin %>
+                      </div>
+                      <div class='col'>
+                        <%= f.input :anneemax %>
+                      </div>
+                    </div>
+                    <%= f.input :km %>
+                  </div>
+                  <div class='col'>
+                    <div class="form-group string optional commande_transmission">
+                      <label class="form-control-label string optional" for="commande_transmission">Transmission : </label>
+                      <select class="form-control select optional" name="commande[transmission]" id="commande_transmission">
+                        <option></option>
+                        <option value="Manuelle">Manuelle</option>
+                        <option value="Automatique">Automatique</option>
+                        <option value="Semi-Automatique">Semi-Automatique</option>
+                      </select>
+                    </div>
+                    <div class="form-group string optional commande_carburant">
+                      <label class="form-control-label string optional" for="commande_carburant">Carburant : </label>
+                      <select class="form-control select optional" name="commande[carburant]" id="commande_carburant">
+                        <option></option>
+                        <option value="Essence">Essence</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Hybride">Hybride</option>
+                        <option value="Electrique">Électrique</option>
+                        <option value="Agro-carburant">Agro-carburant</option>
+                      </select>
+                    </div>
+                    <%= f.input :puissance %>
+                    <%= f.input :co2 %>
+                    <%= f.input :couleur %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col'>
+            <%= f.input :options %>
+            <%= f.input :commentaire %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+
+    <% end %>

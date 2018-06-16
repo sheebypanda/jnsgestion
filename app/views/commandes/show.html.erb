@@ -1,0 +1,90 @@
+<div class='col'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col'>
+        <h2>Commande n°<%= @commande.id %> <small>du <%= @commande.created_at.strftime("%d/%m/%Y") %></small></h2>
+      </div>
+      <div class='col'>
+        <h3>Status : <span class="badge badge-warning badge-pill"><%= @commande.etat %></span></h3>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col'>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= fa_icon('car') %> Véhicule demandé</h5>
+            <div class='row'>
+              <div class='col'>
+                <p class="card-text"><strong>Marque :</strong> <%= @commande.marque %></p>
+                <p class="card-text"><strong>Modèle :</strong> <%= @commande.modele %></p>
+                <p class="card-text"><strong>Finition :</strong> <%= @commande.finition %></p>
+                <p class="card-text"><strong>Type :</strong> <%= @commande.categorie %></p>
+                <div class='row'>
+                  <div class='col'>
+                    <p class="card-text"><strong>Année min :</strong> <%= @commande.anneemin %></p>
+                  </div>
+                  <div class='col'>
+                    <p class="card-text"><strong>Année max :</strong> <%= @commande.anneemax %></p>
+                  </div>
+                </div>
+                <p class="card-text"><strong>Km :</strong> <%= @commande.km %></p>
+              </div>
+              <div class='col'>
+                <p class="card-text"><strong>Carburant :</strong> <%= @commande.carburant %></p>
+                <p class="card-text"><strong>Transmission :</strong> <%= @commande.transmission %></p>
+                <p class="card-text"><strong>Puissance :</strong> <%= @commande.puissance %></p>
+                <p class="card-text"><strong>CO² :</strong> <%= @commande.co2 %></p>
+                <p class="card-text"><strong>Couleur :</strong> <%= @commande.couleur %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='col'>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= fa_icon('user') %> Informations du client <strong><%= @commande.contact.prenom %> <%= @commande.contact.nom %></strong></h5>
+            <div class='row'>
+              <div class='col'>
+                <p class="card-text"><strong>Raison sociale :</strong> <%= @commande.contact.raisonsociale %></p>
+                <p class="card-text"><strong>Activité :</strong> <%= @commande.contact.activite %></p>
+                <p class="card-text"><strong>Adresse :</strong> <%= @commande.contact.adresse %></p>
+                <p class="card-text"><strong>Complément adr :</strong> <%= @commande.contact.complementadresse %></p>
+                <p class="card-text"><%= @commande.contact.cp %> <%= @commande.contact.ville %> <%= @commande.contact.pays %></p>
+                <div class='row'>
+                  <div class='col'>
+                    <p class="card-text"><strong><%= fa_icon('phone') %> :</strong> <%= @commande.contact.tel %></p>
+                  </div>
+                  <div class='col'>
+                    <p class="card-text"><strong><%= fa_icon('mobile') %> :</strong> <%= @commande.contact.mobile %></p>
+                  </div>
+                </div>
+                <p class="card-text"><strong><%= fa_icon('envelope') %> :</strong> <%= @commande.contact.email %></p>
+                <div class='row'>
+                  <div class='col'>
+                    <p class="card-text"><strong><%= fa_icon('barcode') %> SIRET :</strong> <%= @commande.contact.siret %></p>
+                  </div>
+                  <div class='col'>
+                    <p class="card-text"><strong><%= fa_icon('barcode') %> TVA :</strong> <%= @commande.contact.tva %></p>
+                  </div>
+                </div>
+                <p class="card-text"><strong>Commentaire :</strong> <%= @commande.contact.commentaire %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col'>
+      </div>
+    </div>
+    <div class='row mt-3'>
+      <div class='col'>
+        <%= @commande.options %>
+        <%= @commande.commentaire %>
+        <%= link_to 'Modifier', edit_commande_path(@commande), class: 'btn btn-outline-primary' %>
+      </div>
+    </div>
+  </div>
+</div>
