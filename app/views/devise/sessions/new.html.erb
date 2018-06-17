@@ -1,15 +1,27 @@
-<h2>Log in</h2>
+<div class="container mt-3">
+  <div class="row justify-content-md-center">
+    <div class="col-lg-6">
+      <h1 class="text-center mb-3"><%= fa_icon('dashboard') %> JnS Gestion</h1>
+      <h2 class="text-center">Connexion</h2>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <div class="form-inputs">
+          <%= f.input :email, label: 'Adresse mail', required: true, autofocus: true %>
+          <%= f.input :password, label: 'Mot de passe', required: true %>
+          <%= f.input :remember_me, inline_label: 'Se souvenir de moi',  as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Connexion", class: 'btn btn-lg btn-primary btn-block' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="row mt-3 justify-content-md-center">
+    <div class="col-lg-6">
+      <div class="row">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
