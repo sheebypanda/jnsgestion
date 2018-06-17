@@ -1,4 +1,5 @@
 class LivraisonsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_livraison, only: [:show, :edit, :update, :destroy]
   before_action :set_contact, only: [:new, :create, :update]
 

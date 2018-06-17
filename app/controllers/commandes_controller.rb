@@ -1,4 +1,5 @@
 class CommandesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_commande, only: [:show, :edit, :update, :destroy]
   before_action :set_client, only: [:show, :new, :edit, :update, :destroy]
   def index

@@ -1,4 +1,5 @@
 class VehiculesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_vehicule, only: [:show, :edit, :update, :destroy]
   before_action :set_fournisseurs, only: [:show, :edit, :create, :new, :update, :destroy]
   before_action :set_commandes, only: [:show, :edit, :create, :new, :update, :destroy]
