@@ -16,6 +16,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'simple_form'
 gem 'devise'
 gem "font-awesome-rails"
+gem 'jquery-tablesorter'
 
 
 

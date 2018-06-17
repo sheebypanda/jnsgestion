@@ -1,4 +1,4 @@
-<table class="table table-hover table-sm">
+<table id="tablesorter" class="tablesorter table table-hover table-sm">
   <thead>
     <tr>
       <th><%= fa_icon("barcode") %></th>
@@ -21,7 +21,11 @@
 
   <tbody>
     <% @commandes.each do |commande| %>
-      <tr>
+      <tr class="
+        <% if commande.etat == 'Urgent' %> table-warning
+        <% elsif commande.etat == 'En retard' %> table-danger
+        <% elsif commande.etat == 'En cours' %> table-info
+        <% end %>">
         <td><%= commande.id %></td>
         <td><%= commande.etat %></td>
         <td><%= commande.contact.raisonsociale %> <%= commande.contact.prenom %> <%= commande.contact.nom %></td>
