@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :vehicules
-  resources :commandes
+  resources :commandes do
+    resources :vehicules
+  end
   resources :livraisons
   resources :contacts do
     resources :livraisons

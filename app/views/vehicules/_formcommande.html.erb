@@ -24,7 +24,7 @@
           <select class="form-control select required" name="vehicule[commande_id]" id="vehicule_commande_id">
             <option></option>
             <% @commandes.each do |c| %>
-              <option value="<%= c.id %>" <% if @vehicule.commande_id == c.id %> selected <% end %>><%= c.marque %> <%= c.modele %> - <%= c.contact.nom %> <%= c.contact.prenom %> </option>
+              <option value="<%= c.id %>" <% if @commande.id == c.id %> selected <% end %>><%= c.marque %> <%= c.modele %> - <%= c.contact.nom %> <%= c.contact.prenom %> </option>
             <% end%>
           </select>
         </div>
@@ -39,36 +39,36 @@
           <div class="card-body">
             <div class='row'>
               <div class='col'>
-                <%= f.input :marque %>
-                <%= f.input :modele %>
-                <%= f.input :finition %>
-                <%= f.input :couleur %>
-                <%= f.input :categorie %>
+                <%= f.input :marque, input_html: { value: @commande.marque }%>
+                <%= f.input :modele, input_html: { value: @commande.modele } %>
+                <%= f.input :finition, input_html: { value: @commande.finition } %>
+                <%= f.input :couleur, input_html: { value: @commande.couleur } %>
+                <%= f.input :categorie, input_html: { value: @commande.categorie } %>
                 <div class="form-group string optional vehicule_boite">
                   <label class="form-control-label string optional" for="vehicule_boite">Transmission : </label>
                   <select class="form-control select optional" name="vehicule[boite]" id="vehicule_boite">
                     <option></option>
-                    <option value="Manuelle" <% if @vehicule.boite== 'Manuelle' %> selected <% end %>>Manuelle</option>
-                    <option value="Automatique" <% if @vehicule.boite== 'Automatique' %> selected <% end %>>Automatique</option>
-                    <option value="Semi-Automatique" <% if @vehicule.boite == 'Semi-Automatique' %> selected <% end %>>Semi-Automatique</option>
+                    <option value="Manuelle" <% if @commande.transmission== 'Manuelle' %> selected <% end %>>Manuelle</option>
+                    <option value="Automatique" <% if @commande.transmission== 'Automatique' %> selected <% end %>>Automatique</option>
+                    <option value="Semi-Automatique" <% if @commande.transmission == 'Semi-Automatique' %> selected <% end %>>Semi-Automatique</option>
                   </select>
                 </div>
                 <div class="form-group string optional vehicule_carburant">
                   <label class="form-control-label string optional" for="vehicule_carburant">Carburant : </label>
                   <select class="form-control select optional" name="vehicule[carburant]" id="vehicule_carburant">
                     <option></option>
-                    <option value="Essence" <% if @vehicule.carburant == 'Essence' %> selected <% end %>>Essence</option>
-                    <option value="Diesel" <% if @vehicule.carburant == 'Diesel' %> selected <% end %>>Diesel</option>
-                    <option value="Hybride" <% if @vehicule.carburant == 'Hybride' %> selected <% end %>>Hybride</option>
-                    <option value="Electrique" <% if @vehicule.carburant == 'Electrique' %> selected <% end %>>Électrique</option>
-                    <option value="Agro-carburant" <% if @vehicule.carburant == 'Agro-carburant' %> selected <% end %>>Agro-carburant</option>
+                    <option value="Essence" <% if @commande.carburant == 'Essence' %> selected <% end %>>Essence</option>
+                    <option value="Diesel" <% if @commande.carburant == 'Diesel' %> selected <% end %>>Diesel</option>
+                    <option value="Hybride" <% if @commande.carburant == 'Hybride' %> selected <% end %>>Hybride</option>
+                    <option value="Electrique" <% if @commande.carburant == 'Electrique' %> selected <% end %>>Électrique</option>
+                    <option value="Agro-carburant" <% if @commande.carburant == 'Agro-carburant' %> selected <% end %>>Agro-carburant</option>
                   </select>
                 </div>
               </div>
               <div class="col">
-                <%= f.input :km %>
-                <%= f.input :co2 %>
-                <%= f.input :cylindree %>
+                <%= f.input :km, input_html: { value: @commande.km } %>
+                <%= f.input :co2, input_html: { value: @commande.co2 } %>
+                <%= f.input :cylindree, input_html: { value: @commande.puissance } %>
                 <%= f.input :cv %>
                 <%= f.input :cvfiscaux %>
                 <%= f.input :chassis %>
@@ -77,8 +77,8 @@
             </div>
 
 
-    <%= f.input :equipement %>
-    <%= f.button :submit %>
+    <%= f.input :equipement, input_html: { value: @commande.options } %>
+    <%= f.button :submit, value: 'Créer le véhicule' %>
   </div>
 
 

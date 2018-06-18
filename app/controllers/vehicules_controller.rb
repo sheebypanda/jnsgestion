@@ -12,14 +12,16 @@ class VehiculesController < ApplicationController
   end
   def show
   end
-
   def new
     @vehicule = Vehicule.new
+    if params[:commande_id]
+      @commande = Commande.find(params[:commande_id])
+    else
+      @commande  = Commande.new
+    end
   end
-
   def edit
   end
-
   def create
     @vehicule = Vehicule.new(vehicule_params)
 
@@ -31,7 +33,6 @@ class VehiculesController < ApplicationController
       end
     end
   end
-
   def update
     respond_to do |format|
       if @vehicule.update(vehicule_params)
@@ -41,7 +42,6 @@ class VehiculesController < ApplicationController
       end
     end
   end
-
   def destroy
     @vehicule.destroy
     respond_to do |format|

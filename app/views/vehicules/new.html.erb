@@ -1,6 +1,10 @@
 <div class="col">
   <h1 class="text-center">Ajout d'un nouveau véhicule</h1>
   <div class="row">
-    <%= render 'form', vehicule: @vehicule %>
+    <% if @commande %>
+      <%= render 'formcommande', vehicule: @vehicule %>
+    <% else %>
+      <%= render 'form', vehicule: @vehicule %>
+    <% end %>
   </div>
 </div>

@@ -35,6 +35,7 @@
                 <p class="card-text"><strong>Puissance :</strong> <%= @commande.puissance %></p>
                 <p class="card-text"><strong>CO² :</strong> <%= @commande.co2 %></p>
                 <p class="card-text"><strong>Couleur :</strong> <%= @commande.couleur %></p>
+                <%= link_to 'Attribuer un véhicule', new_commande_vehicule_path(@commande), class: 'btn-block btn btn-outline-primary' %>
               </div>
             </div>
           </div>
