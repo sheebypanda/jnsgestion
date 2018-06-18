@@ -28,14 +28,14 @@
       <li class="nav-item <% if request.path.start_with?('/vehicules') %>active<% end %>">
         <a class="nav-link" href="<%= vehicules_path %>"><%= fa_icon('car') %> Véhicules</a>
       </li>
+      <li class="nav-item <% if request.path.start_with?('/stock') %>active<% end %>">
+        <a class="nav-link" href="/stock"><%= fa_icon('home') %> Stock</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#"><%= fa_icon('money') %> Achats</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#"><%= fa_icon('truck') %> Transports</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#"><%= fa_icon('truck') %> Stock</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#"><%= fa_icon('archive') %> Archives</a>

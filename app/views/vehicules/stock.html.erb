@@ -3,19 +3,18 @@
     <tr>
       <th>Enregistré par</th>
       <th>Fournisseur</th>
-      <th>Commande</th>
       <th>Marque</th>
       <th>Modèle</th>
       <th>Finition</th>
       <th>Catégorie</th>
       <th>Boite</th>
       <th>Cylindrée</th>
-      <th>CV</th>
+      <th>Cv</th>
       <th>CV fiscaux</th>
       <th>Couleur</th>
       <th>Chassis</th>
       <th>Carburant</th>
-      <th>Immatriculation</th>
+      <th>Immatriculaiton</th>
       <th>Km</th>
       <th>Prix (HT)</th>
       <th colspan="3"></th>
@@ -27,7 +26,6 @@
       <tr>
         <td><%= vehicule.user.email %></td>
         <td><%= vehicule.contact.raisonsociale %> <%= vehicule.contact.nom %> <%= vehicule.contact.prenom %></td>
-        <td><% if vehicule.commande %><%= vehicule.commande.marque %> <%= vehicule.commande.modele %> pour <%= vehicule.commande.contact.nom %><% end %></td>
         <td><%= vehicule.marque %></td>
         <td><%= vehicule.modele %></td>
         <td><%= vehicule.finition %></td>

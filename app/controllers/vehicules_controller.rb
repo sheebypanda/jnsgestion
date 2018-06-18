@@ -7,7 +7,9 @@ class VehiculesController < ApplicationController
   def index
     @vehicules = Vehicule.all
   end
-
+  def stock
+    @vehicules = Vehicule.where(commande_id: [nil, ''])
+  end
   def show
   end
 
