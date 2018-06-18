@@ -22,32 +22,33 @@
             </div>
           </div>
           <footer class="blockquote-footer">Acheté le <%= @vehicule.created_at.strftime("%d/%m/%Y") %> par <%= @vehicule.user.email %></footer>
-          <%= link_to 'Modifier', edit_vehicule_path(@vehicule.commande), class: 'btn btn-outline-primary' %>
+          <%= link_to 'Modifier', edit_vehicule_path(@vehicule), class: 'btn btn-outline-primary' %>
         </div>
       </div>
     </div>
+  <% if @vehicule.commande %>
     <div class='col'>
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"><%= fa_icon('shopping-basket') %> Commande n°<%= @vehicule.commande.id %> <small>du <%= @vehicule.commande.created_at.strftime("%d/%m/%Y") %></small> <span class="badge badge-warning badge-pill"><%= @vehicule.commande.etat %></span></h5>
-          <div class='row'>
-            <div class='col'>
-              <p class="card-text"><strong>Marque :</strong> <%= @vehicule.commande.marque %></p>
-              <p class="card-text"><strong>Modèle :</strong> <%= @vehicule.commande.modele %></p>
-              <p class="card-text"><strong>Finition :</strong> <%= @vehicule.commande.finition %></p>
-              <p class="card-text"><strong>Type :</strong> <%= @vehicule.commande.categorie %></p>
-              <p class="card-text"><strong>Année min :</strong> <%= @vehicule.commande.anneemin %></p>
-              <p class="card-text"><strong>Année max :</strong> <%= @vehicule.commande.anneemax %></p>
-              <p class="card-text"><strong>Km :</strong> <%= @vehicule.commande.km %></p>
+            <h5 class="card-title"><%= fa_icon('shopping-basket') %> Commande n°<%= @vehicule.commande.id %> <small>du <%= @vehicule.commande.created_at.strftime("%d/%m/%Y") %></small> <span class="badge badge-warning badge-pill"><%= @vehicule.commande.etat %></span></h5>
+            <div class='row'>
+              <div class='col'>
+                <p class="card-text"><strong>Marque :</strong> <%= @vehicule.commande.marque %></p>
+                <p class="card-text"><strong>Modèle :</strong> <%= @vehicule.commande.modele %></p>
+                <p class="card-text"><strong>Finition :</strong> <%= @vehicule.commande.finition %></p>
+                <p class="card-text"><strong>Type :</strong> <%= @vehicule.commande.categorie %></p>
+                <p class="card-text"><strong>Année min :</strong> <%= @vehicule.commande.anneemin %></p>
+                <p class="card-text"><strong>Année max :</strong> <%= @vehicule.commande.anneemax %></p>
+                <p class="card-text"><strong>Km :</strong> <%= @vehicule.commande.km %></p>
+              </div>
+              <div class='col'>
+                <p class="card-text"><strong>Carburant :</strong> <%= @vehicule.commande.carburant %></p>
+                <p class="card-text"><strong>Transmission :</strong> <%= @vehicule.commande.transmission %></p>
+                <p class="card-text"><strong>Puissance :</strong> <%= @vehicule.commande.puissance %></p>
+                <p class="card-text"><strong>CO² :</strong> <%= @vehicule.commande.co2 %></p>
+                <p class="card-text"><strong>Couleur :</strong> <%= @vehicule.commande.couleur %></p>
+              </div>
             </div>
-            <div class='col'>
-              <p class="card-text"><strong>Carburant :</strong> <%= @vehicule.commande.carburant %></p>
-              <p class="card-text"><strong>Transmission :</strong> <%= @vehicule.commande.transmission %></p>
-              <p class="card-text"><strong>Puissance :</strong> <%= @vehicule.commande.puissance %></p>
-              <p class="card-text"><strong>CO² :</strong> <%= @vehicule.commande.co2 %></p>
-              <p class="card-text"><strong>Couleur :</strong> <%= @vehicule.commande.couleur %></p>
-            </div>
-          </div>
           <%= link_to 'Modifier', edit_commande_path(@vehicule.commande), class: 'btn btn-outline-primary' %>
         </div>
       </div>
@@ -86,4 +87,5 @@
       <%= @vehicule.commande.commentaire %>
     </div>
   </div>
+  <% end %>
 </div>
